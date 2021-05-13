@@ -11,3 +11,16 @@ int eval(std::string pst) {
   // добавьте сюда нужный код
   return 0;
 }
+
+int priority(char a) {
+    int p = 0;
+    if (a == '(')
+        p = 0;
+    if (a == ')')
+        p = 1;
+    if (a == '+' || a == '-')
+        p = 2;
+    if (a == '*' || a == '/')
+        p = 3;
+    return p;
+}
