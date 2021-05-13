@@ -4,20 +4,20 @@
 
 std::string infx2pstfx(std::string inf) {
   TStack<char> stack1;
-  std::string result;
+  std::string res;
   for (int i = 0; i < inf.length(); i++) {
     std::string a = inf[i];
     if (a >= '0' && a <= '9') {
-      result += a;
-      result += ' ';
+      res += a;
+      res += ' ';
     } else if (a == '(') {
       stack1.push(a);
     } else if (priority(a) > priority(stack1.get()) || stack1.isEmpty()) {
       stack1.push(a);
     } else if (a == ')') {
       while (!stack1.isEmpty() && stack1.get() != '(') {
-        result += stack1.get();
-        result += ' ';
+        res += stack1.get();
+        res += ' ';
         stack1.pop();
       }
       if (stack1.get() == '(') {
@@ -25,23 +25,23 @@ std::string infx2pstfx(std::string inf) {
       }
     } else {
       while (!stack1.isEmpty() && priority(stack1.get()) >= priority(a)) {
-        result += stack1.get();
-        result += ' ';
+        res += stack1.get();
+        res += ' ';
         stack1.pop();
       }
       stack1.push(a);
     }
   }
   while (!stack1.isEmpty()) {
-    result += stack1.get();
-    result += ' ';
+    res += stack1.get();
+    res += ' ';
     stack1.pop();
   }
   while (result[result.length() - 1] == ' ') {
-    result = result.substr(0, result.length()-1);
+    res = res.substr(0, res.length()-1);
   }
 
-  return result;
+  return res;
 }
 
 int eval(std::string pst) {
