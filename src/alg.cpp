@@ -2,7 +2,7 @@
 #include <string>
 #include "tstack.h"
 
-char a, b;
+char a, b, res;
 
 int priority(char symbol) {
   int p = 0;
@@ -52,7 +52,7 @@ std::string infx2pstfx(std::string inf) {
     res += ' ';
     stack1.pop();
   }
-  while (result[result.length() - 1] == ' ') {
+  while (res[res.length() - 1] == ' ') {
     res = res.substr(0, res.length()-1);
   }
 
