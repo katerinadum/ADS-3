@@ -3,6 +3,7 @@
 #include "tstack.h"
 
 char a, b, res;
+std::string res;
 
 int priority(char symbol) {
   int p = 0;
