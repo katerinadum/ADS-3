@@ -2,6 +2,21 @@
 #include <string>
 #include "tstack.h"
 
+char a, b;
+
+int priority(char symbol) {
+  int p = 0;
+  if (symbol == '(')
+    return 0;
+  if (symbol == ')')
+    return 1;
+  if (symbol == '+' || a == '-')
+    return 2;
+  if (symbol == '*' || a == '/')
+    return 3;
+  return -1;
+}
+
 std::string infx2pstfx(std::string inf) {
   TStack<char> stack1;
   std::string res;
@@ -67,17 +82,4 @@ int eval(std::string pst) {
     }
   }
   return stack2.get();
-}
-
-int priority(char symbol) {
-  int p = 0;
-  if (symbol == '(')
-    return 0;
-  if (symbol == ')')
-    return 1;
-  if (symbol == '+' || a == '-')
-    return 2;
-  if (symbol == '*' || a == '/')
-    return 3;
-  return -1;
 }
