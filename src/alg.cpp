@@ -6,7 +6,7 @@ std::string infx2pstfx(std::string inf) {
   TStack<char> stack1;
   std::string res;
   for (int i = 0; i < inf.length(); i++) {
-    std::string a = inf[i];
+    char a = inf[i];
     if (a >= '0' && a <= '9') {
       res += a;
       res += ' ';
@@ -47,7 +47,7 @@ std::string infx2pstfx(std::string inf) {
 int eval(std::string pst) {
   TStack<int> stack2;
   for (int i = 0; i < pst.length(); i++) {
-    std::string b = pst[i];
+    char b = pst[i];
     if (b >= '0' && b <= '9') {
       stack2.push(b - '0');
     } else if (b != ' ') {
