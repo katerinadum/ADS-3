@@ -2,7 +2,7 @@
 #include <string>
 #include "tstack.h"
 
-char a, b, res;
+char a, b;
 std::string res;
 
 int priority(char symbol) {
