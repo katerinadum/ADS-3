@@ -23,16 +23,14 @@ std::string infx2pstfx(std::string inf) {
   for (int i = 0; i < inf.length(); i++) {
     char a = inf[i];
     if (a >= '0' && a <= '9') {
-      res += a;
-      res += ' ';
+      res += a + " ";
     } else if (a == '(') {
       stack1.push(a);
     } else if (priority(a) > priority(stack1.get()) || stack1.isEmpty()) {
       stack1.push(a);
     } else if (a == ')') {
       while (!stack1.isEmpty() && stack1.get() != '(') {
-        res += stack1.get();
-        res += ' ';
+        res += stack1.get() + " ";
         stack1.pop();
       }
       if (stack1.get() == '(') {
@@ -40,22 +38,20 @@ std::string infx2pstfx(std::string inf) {
       }
     } else {
       while (!stack1.isEmpty() && priority(stack1.get()) >= priority(a)) {
-        res += stack1.get();
-        res += ' ';
+        res += stack1.get() + " ";
         stack1.pop();
       }
       stack1.push(a);
     }
   }
   while (!stack1.isEmpty()) {
-    res += stack1.get();
-    res += ' ';
+    res += stack1.get() + " ";
     stack1.pop();
   }
-  while (res[res.length() - 1] == ' ') {
-    res = res.substr(0, res.length()-1);
-  }
-
+//while (res[res.length() - 1] == ' ') {
+//res = res.substr(0, res.length()-1);
+//}
+  res.erase(res.end() - 1, res.end());
   return res;
 }
 
