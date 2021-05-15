@@ -3,7 +3,6 @@
 #include "tstack.h"
 
 char a, b;
-std::string res;
 
 int priority(char symbol) {
   int p = 0;
@@ -19,7 +18,7 @@ int priority(char symbol) {
 }
 
 std::string infx2pstfx(std::string inf) {
-  TStack<char> stack1;
+  TStack <char> stack1;
   std::string res;
   for (int i = 0; i < inf.length(); i++) {
     char a = inf[i];
