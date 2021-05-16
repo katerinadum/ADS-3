@@ -30,12 +30,12 @@ std::string infx2pstfx(std::string inf) {
     } else if (priority(a) > priority(stack1.get()) || stack1.isEmpty()) {
       stack1.push(a);
     } else if (a == ')') {
-      while (!stack1.isEmpty() && stack1.get() != '(') {
-        res += stack1.get();
+      char q = stack1.get();
+      stack1.pop();
+      while (q != '(') {
+        res += q;
         res += " ";
-        stack1.pop();
-      }
-      if (stack1.get() == '(') {
+        q = stack1.get();
         stack1.pop();
       }
     } else {
@@ -52,9 +52,6 @@ std::string infx2pstfx(std::string inf) {
     res += " ";
     stack1.pop();
   }
-//while (res[res.length() - 1] == ' ') {
-//res = res.substr(0, res.length()-1);
-//}
   res.erase(res.end() - 1, res.end());
   return res;
 }
