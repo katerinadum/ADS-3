@@ -5,14 +5,13 @@
 char a, b;
 
 int priority(char symbol) {
-  int p = 0;
   if (symbol == '(')
     return 0;
   if (symbol == ')')
     return 1;
-  if (symbol == '+' || a == '-')
+  if (symbol == '+' || symbol == '-')
     return 2;
-  if (symbol == '*' || a == '/')
+  if (symbol == '*' || symbol == '/')
     return 3;
   return -1;
 }
